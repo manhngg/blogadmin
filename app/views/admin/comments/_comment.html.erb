@@ -1,0 +1,15 @@
+ <p>
+    <strong>Người bình luận:</strong>
+    <%= comment.commenter %>
+  </p>
+ 
+  <p>
+    <strong>Nội dung:</strong>
+    <%= comment.body %>
+  </p>
+
+  <p>
+  <%= link_to 'Xóa bình luận', [:admin, comment.article, comment],
+               method: :delete,
+               data: { confirm: 'Bạn có chắc không?' } %>
+</p>

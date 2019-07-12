@@ -1,0 +1,19 @@
+<p>
+  <strong>Tiêu đề:</strong>
+  <%= @article.title %>
+</p>
+ 
+<p>
+  <strong>Nội dung:</strong>
+  <%= @article.text %>
+</p>
+
+<h2>Các bình luận</h2>
+
+<%= render @article.comments %>
+
+<h2>Thêm một bình luận:</h2>
+<%= render 'admin/comments/form' %>
+
+<%= link_to 'Sửa', edit_admin_article_path(@article) %> |
+<%= link_to 'Trở lại', admin_articles_path %>

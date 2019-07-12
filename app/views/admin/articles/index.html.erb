@@ -1,0 +1,36 @@
+
+<h1>Liệt kê các bài viết</h1>
+
+<%= link_to 'Bài viết mới', new_admin_article_path %>
+<br>
+<p>Total: <%= Article.count %></p>
+<br>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Tiêu đề</th>
+    <th>Nội dung</th>
+    <th>deleted_at</th>
+    <th>deleted_at</th>
+    <th></th>
+  </tr>
+
+  <% @articles.each do |article| %>
+  <tr>
+    <td><%= article.id %></td>
+    <td><%= article.title %></td>
+    <td><%= article.text %></td>
+    <td><%= article.deleted_at %></td>
+    <td><%= article.deleted? %></td>
+
+    <td><%= link_to 'Xem', admin_article_path(article) %></td>
+    <td><%= link_to 'Sửa', edit_admin_article_path(article) %></td>
+    <td><%= link_to 'Xóa', admin_article_path(article),
+              method: :delete,
+              data: { confirm: 'Bạn có chắc không?' } %></td>
+    <td><%= article.restore %></td>
+  </tr>
+  <% end %>
+</table>
+<br>
+<%= link_to 'Trở lại', root_path %>
